@@ -140,12 +140,70 @@
                 </div>
                 <div class="card bg-secondary-subtle bg-gradient border-0 m-3">
                     <div class="card-body h-100">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        This is some text within a card body.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        This is some text within a card body.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        This is some text within a card body.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="card bg-secondary-subtle bg-gradient border-0 m-3">
-                    <div class="card-body h-100">
+                    <div class="card-body h-100 container">
+                        <div class="row ">
+                            <div class="col-md-4 text-center">
+                                <h3>Investments</h3>
+                                <p>Change since last login</p>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="card">
+                                    <div class="card-body">
+                                        This is some text within a card body.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="card">
+                                    <div class="card-body">
+                                        This is some text within a card body.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="card">
+                                    <div class="card-body">
+                                        This is some text within a card body.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="card">
+                                    <div class="card-body">
+                                        This is some text within a card body.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
