@@ -9,8 +9,9 @@ class App
 
     public function __construct()
     {
-        $this->module = $_GET['module'] ?? 'home';  // Módulo por defecto
-        $this->action = $_GET['action'] ?? 'index'; // Acción por defecto
+        $this->loadEnv();
+        $this->module = $_GET['module'] ?? $_ENV['MODULE_DEFAULT'];
+        $this->action = $_GET['action'] ?? $_ENV['ACTION_DEFAULT'];
     }
 
     public function run()
@@ -20,8 +21,8 @@ class App
 
     protected function route()
     {
-        $moduleClass = ucfirst($this->module); // Convierte "home" en "Home"
-        $moduleFile = __DIR__ . "/../modules/{$this->module}/{$moduleClass}.php";
+        $moduleClass = ucfirst($this->module);
+        $moduleFile = __DIR__ . "/../modules/{$moduleClass}/{$moduleClass}.php";
 
         if (file_exists($moduleFile)) {
             require_once $moduleFile;
@@ -39,6 +40,29 @@ class App
             }
         } else {
             echo "Módulo no encontrado: {$this->module}";
+        }
+    }
+
+    protected function loadEnv()
+    {
+        $path = __DIR__ . '/../.env';
+        if (!file_exists($path)) {
+            throw new Exception("El archivo .env no existe en la ruta: $path");
+        }
+
+        $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        foreach ($lines as $line) {
+            if (strpos(trim($line), '#') === 0) {
+                continue;
+            }
+
+            list($name, $value) = explode('=', $line, 2);
+
+            $name = trim($name);
+            $value = trim($value);
+
+            $_ENV[$name] = $value;
+            $_SERVER[$name] = $value;
         }
     }
 }
