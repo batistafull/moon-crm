@@ -1,7 +1,7 @@
 <?php
 
 include __DIR__ . "/header.php";
-if(isset($_GET['module']) && $_GET['module'] != strtolower('login')) {
+if (!isset($_GET['module']) || strtolower($_GET['module']) !== 'login') {
     include __DIR__ . "/navbar.php";
 }
 

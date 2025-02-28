@@ -5,7 +5,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Welcome to the login page</h5>
                     <p class="card-text">Please enter your credentials to login.</p>
-                    <form method="post">
+                    <form method="post" action="index.php?module=login&action=login">
                         <div class="form-group mb-3">
                             <label for="username">Username</label>
                             <input type="text" class="form-control" id="username" name="username" required>
