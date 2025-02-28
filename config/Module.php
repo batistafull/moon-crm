@@ -4,11 +4,13 @@ class Module
 {
     protected $moduleName;
     protected $db;
+    protected $auth;
 
     public function __construct()
     {
         $this->moduleName = get_class($this);
         $this->db = new DatabaseToolkit();
+        $this->auth = new Auth();
     }
 
     public function view($path, $data = [])

@@ -59,7 +59,7 @@ class Auth
     public function requireAuth()
     {
         if (!$this->isAuthenticated()) {
-            $this->redirect('/login.php');
+            $this->redirect('index.php?module=login');
         }
     }
 
