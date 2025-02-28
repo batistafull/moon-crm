@@ -3,10 +3,12 @@
 class Module
 {
     protected $moduleName;
+    protected $db;
 
     public function __construct()
     {
         $this->moduleName = get_class($this);
+        $this->db = new DatabaseToolkit();
     }
 
     public function view($path, $data = [])

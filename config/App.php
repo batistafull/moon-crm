@@ -1,17 +1,19 @@
 <?php
 
-require_once __DIR__ . '/Module.php'; // Asegura que Module está disponible antes de cargar módulos
+require_once __DIR__ . '/DatabaseToolkit.php';
+require_once __DIR__ . '/Module.php'; 
 
 class App
 {
     protected $module;
     protected $action;
-
+    
     public function __construct()
     {
         $this->loadEnv();
         $this->module = $_GET['module'] ?? $_ENV['MODULE_DEFAULT'];
         $this->action = $_GET['action'] ?? $_ENV['ACTION_DEFAULT'];
+        
     }
 
     public function run()
