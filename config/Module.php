@@ -17,7 +17,7 @@ class Module
 
         if (file_exists($viewPath)) {
             extract($data); 
-            include __DIR__ . "/../themes/main.php";
+            include __DIR__ . "/../themes/".$_ENV['THEME_DEFAULT']."/main.php";
         } else {
             echo "Error: Vista no encontrada ({$path}) en el módulo {$this->moduleName}";
         }

@@ -3,7 +3,7 @@
         <div class="col-md-4 h-100">
             <div class="card bg-primary-subtle bg-gradient border-0 m-3 h-100">
                 <div class="card-body">
-                    <h6 class="card-title">Total balance</h6>
+                    <h6 class="card-title">Total balance </h6>
                     <p class="fs-1 fw-light">$ 439,177.00</p>
                 </div>
             </div>
