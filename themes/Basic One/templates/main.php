@@ -1,10 +1,8 @@
-<?php
+<?= $header; ?>
+<?php if (!isset($_GET['module']) || strtolower($_GET['module']) !== 'login') { ?>
+    <?= $navbar; ?>
+<?php } ?>
 
-echo $header;
-if (!isset($_GET['module']) || strtolower($_GET['module']) !== 'login') {
-    echo $navbar;
-}
+<?= $content; ?>
 
-echo $content;
-
-echo $footer;
+<?= $footer; ?>
