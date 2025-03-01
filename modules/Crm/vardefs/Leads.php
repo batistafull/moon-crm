@@ -1,46 +1,150 @@
 <?php
 
 $vardefs['Leads']['create'] = [
-    'title' => [
-        'size' => 4,
-        'required' => true,
-        'label' => 'Title',
-        'type' => 'text', // Tipo de campo
-        'maxlength' => 255,
-        'default' => ''
-    ],
     'first_name' => [
         'size' => 4,
         'required' => true,
         'label' => 'First Name',
-        'type' => 'text', // Tipo de campo
+        'type' => 'text',
+        'maxlength' => 255,
+        'default' => ''
+    ],
+    'last_name' => [
+        'size' => 4,
+        'required' => true,
+        'label' => 'Last Name',
+        'type' => 'text',
         'maxlength' => 255,
         'default' => ''
     ],
     'newsletter' => [
         'size' => 4,
         'required' => false,
-        'label' => 'Suscribirse al newsletter',
-        'type' => 'checkbox', // Tipo de campo
+        'label' => 'Subscribe to newsletter',
+        'type' => 'checkbox',
         'default' => false
     ],
     'country' => [
         'size' => 4,
         'required' => true,
-        'label' => 'País',
-        'type' => 'select', // Tipo de campo
-        'options' => [ // Opciones para el select
+        'label' => 'Country',
+        'type' => 'select',
+        'options' => [
             'MX' => 'México',
             'US' => 'Estados Unidos',
             'CA' => 'Canadá'
         ],
         'default' => 'MX'
     ],
+    'email' => [
+        'size' => 12,
+        'required' => true,
+        'label' => 'Email',
+        'type' => 'text',
+        'default' => ''
+    ],
     'comments' => [
         'size' => 12,
         'required' => false,
         'label' => 'Comentarios',
-        'type' => 'textarea', // Tipo de campo
+        'type' => 'textarea',
         'default' => ''
+    ],
+];
+
+$vardefs['Leads']['edit'] = [
+    'first_name' => [
+        'size' => 4,
+        'required' => true,
+        'label' => 'First Name',
+        'type' => 'text',
+        'maxlength' => 255,
+    ],
+    'last_name' => [
+        'size' => 4,
+        'required' => true,
+        'label' => 'Last Name',
+        'type' => 'text',
+        'maxlength' => 255,
+    ],
+    'email' => [
+        'size' => 4,
+        'required' => true,
+        'label' => 'Email',
+        'type' => 'text',
+        'maxlength' => 255,
+    ],
+    'country' => [
+        'size' => 4,
+        'required' => true,
+        'label' => 'Country',
+        'type' => 'select',
+        'options' => [
+            'MX' => 'México',
+            'US' => 'Estados Unidos',
+            'CA' => 'Canadá',
+        ],
+    ],
+    'newsletter' => [
+        'size' => 4,
+        'required' => false,
+        'label' => 'Subscribe to newsletter',
+        'type' => 'checkbox',
+    ],
+    'comments' => [
+        'size' => 12,
+        'required' => false,
+        'label' => 'Comments',
+        'type' => 'textarea',
+    ],
+];
+
+$vardefs['Leads']['detail'] = [
+    'first_name' => [
+        'label' => 'First Name',
+        'format' => 'text',
+    ],
+    'last_name' => [
+        'label' => 'Last Name',
+        'format' => 'text',
+    ],
+    'email' => [
+        'label' => 'Email',
+        'format' => 'email',
+    ],
+    'country' => [
+        'label' => 'Country',
+        'format' => 'text',
+    ],
+    'newsletter' => [
+        'label' => 'Subscribe to newsletter',
+        'format' => 'boolean',
+    ],
+    'comments' => [
+        'label' => 'Comments',
+        'format' => 'text',
+    ],
+];
+
+$vardefs['Leads']['list'] = [
+    'first_name' => [
+        'label' => 'First Name',
+        'sortable' => true,
+    ],
+    'last_name' => [
+        'label' => 'Last Name',
+        'sortable' => true,
+    ],
+    'email' => [
+        'label' => 'Email',
+        'sortable' => false,
+    ],
+    'country' => [
+        'label' => 'País',
+        'sortable' => true,
+    ],
+    'actions' => [
+        'label' => 'Actions',
+        'sortable' => false,
     ],
 ];

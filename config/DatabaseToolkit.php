@@ -21,6 +21,14 @@ class DatabaseToolkit
         mysqli_set_charset($this->connection, "utf8");
     }
 
+    public function escape($value)
+    {
+        if (is_string($value)) {
+            return mysqli_real_escape_string($this->connection, $value);
+        }
+        return $value; // No es necesario escapar números u otros tipos
+    }
+
     public function query($sql, $params = [])
     {
         $stmt = mysqli_prepare($this->connection, $sql);
