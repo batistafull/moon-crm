@@ -20,17 +20,14 @@ class Module
         $viewPath = __DIR__ . "/../modules/{$this->moduleName}/views/{$path}.php";
 
         if (file_exists($viewPath)) {
-            include_once __DIR__ . "/../themes/".$_ENV['THEME_DEFAULT']."/manifest.php";
+            include_once __DIR__ . "/../themes/" . $_ENV['THEME_DEFAULT'] . "/manifest.php";
             foreach ($manifest['templates'] as $template) {
-                ob_start();
-                
-                include __DIR__ . "/../themes/".$_ENV['THEME_DEFAULT']."/templates/{$template}.php";
-                
-                $this->data[$template] = ob_get_clean();
-
+                if (!isset($this->data[$template])) {
+                    $this->data[$template] = $this->template(__DIR__ . "/../themes/" . $_ENV['THEME_DEFAULT'] . "/templates/{$template}.php");
+                }
             }
-            
-            extract($this->data); 
+
+            extract($this->data);
             if (isset($viewPath) && file_exists($viewPath)) {
                 ob_start();
                 include $viewPath;
@@ -38,10 +35,19 @@ class Module
             } else {
                 echo "Error: view not found ({$path}) in module {$this->moduleName}";
             }
-        
-            include __DIR__ . "/../themes/".$_ENV['THEME_DEFAULT']."/templates/main.php";
+
+            include __DIR__ . "/../themes/" . $_ENV['THEME_DEFAULT'] . "/templates/main.php";
         } else {
             echo "Error: View not found ({$path}) in module {$this->moduleName}";
         }
+    }
+
+    public function template($path)
+    {
+        ob_start();
+
+        include $path;
+
+        return ob_get_clean();
     }
 }
