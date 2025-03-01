@@ -21,12 +21,13 @@ class Module
 
         if (file_exists($viewPath)) {
             include_once __DIR__ . "/../themes/" . $_ENV['THEME_DEFAULT'] . "/manifest.php";
+            $this->data['title_crm'] = $manifest['name'];
+            
             foreach ($manifest['templates'] as $template) {
                 if (!isset($this->data[$template])) {
                     $this->data[$template] = $this->template(__DIR__ . "/../themes/" . $_ENV['THEME_DEFAULT'] . "/templates/{$template}.php");
                 }
             }
-
             extract($this->data);
             if (isset($viewPath) && file_exists($viewPath)) {
                 ob_start();
@@ -44,6 +45,7 @@ class Module
 
     public function template($path)
     {
+        extract($this->data);
         ob_start();
 
         include $path;

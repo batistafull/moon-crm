@@ -16,6 +16,8 @@ class Crm extends Module
         if (isset($_GET['action']) && !empty($_GET['action'])) {
             $this->data['action'] = $_GET['action'];
         }
+        $this->data['menu_list'] = ['Leads', 'Oportunities'];
+        $this->data['menu'] = $this->template("modules/{$this->moduleName}/views/menu.php");
 
     }
 

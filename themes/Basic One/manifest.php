@@ -8,6 +8,7 @@ $manifest = [
     'templates' => [
         'header',
         'navbar',
+        'menu',
         'main',
         'footer',
     ],
