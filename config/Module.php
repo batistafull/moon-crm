@@ -20,10 +20,28 @@ class Module
         $viewPath = __DIR__ . "/../modules/{$this->moduleName}/views/{$path}.php";
 
         if (file_exists($viewPath)) {
+            include_once __DIR__ . "/../themes/".$_ENV['THEME_DEFAULT']."/manifest.php";
+            foreach ($manifest['templates'] as $template) {
+                ob_start();
+                
+                include __DIR__ . "/../themes/".$_ENV['THEME_DEFAULT']."/templates/{$template}.php";
+                
+                $this->data[$template] = ob_get_clean();
+
+            }
+            
             extract($this->data); 
-            include __DIR__ . "/../themes/".$_ENV['THEME_DEFAULT']."/main.php";
+            if (isset($viewPath) && file_exists($viewPath)) {
+                ob_start();
+                include $viewPath;
+                $content = ob_get_clean();
+            } else {
+                echo "Error: view not found ({$path}) in module {$this->moduleName}";
+            }
+        
+            include __DIR__ . "/../themes/".$_ENV['THEME_DEFAULT']."/templates/main.php";
         } else {
-            echo "Error: Vista no encontrada ({$path}) en el módulo {$this->moduleName}";
+            echo "Error: View not found ({$path}) in module {$this->moduleName}";
         }
     }
 }

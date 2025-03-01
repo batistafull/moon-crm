@@ -1,7 +1,7 @@
 <div class="p-4">
     <h1><?= $title; ?> <a href="index.php?module=crm&action=create&crm_module=<?= $crm_module; ?>" class="btn btn-primary">Crear</a></h1>
 
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered table-striped table-sm">
         <thead>
             <tr>
                 <?php foreach ($vardefs as $field => $def): ?>
