@@ -25,6 +25,7 @@ class Crm extends Module
 
     public function list()
     {
+        $this->auth->requireRole('admin');
         $this->data['title'] = "List {$this->data['crm_module']}";
         $sql = "SELECT * FROM crm_{$this->data['crm_module']}";
         $data_list = $this->db->query($sql);

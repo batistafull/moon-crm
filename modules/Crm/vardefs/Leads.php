@@ -1,5 +1,71 @@
 <?php
 
+$vardefs['Leads']['fields'] = [
+    'id' => [
+        'type' => 'varchar',
+        'size' => 255,
+        'nullable' => false,
+        'default' => null,
+        'indices' => ['PRIMARY'],
+        'comment' => '',
+        'autoincrement' => false,
+    ],
+    'first_name' => [
+        'type' => 'varchar',
+        'size' => 255,
+        'nullable' => false,
+        'default' => null,
+        'indices' => [],
+        'comment' => '',
+        'autoincrement' => false,
+    ],
+    'last_name' => [
+        'type' => 'varchar',
+        'size' => 255,
+        'nullable' => false,
+        'default' => null,
+        'indices' => [],
+        'comment' => '',
+        'autoincrement' => false,
+    ],
+    'email' => [
+        'type' => 'varchar',
+        'size' => 255,
+        'nullable' => false,
+        'default' => null,
+        'indices' => [],
+        'comment' => '',
+        'autoincrement' => false,
+    ],
+    'country' => [
+        'type' => 'varchar',
+        'size' => 255,
+        'nullable' => false,
+        'default' => null,
+        'indices' => [],
+        'comment' => '',
+        'autoincrement' => false,
+    ],
+    'newsletter' => [
+        'type' => 'boolean',
+        'size' => 255,
+        'nullable' => false,
+        'default' => null,
+        'indices' => [],
+        'comment' => '',
+        'autoincrement' => false,
+    ],
+    'comments' => [
+        'type' => 'text',
+        'size' => 255,
+        'nullable' => false,
+        'default' => null,
+        'indices' => [],
+        'comment' => '',
+        'autoincrement' => false,
+    ],
+];
+
 $vardefs['Leads']['create'] = [
     'first_name' => [
         'size' => 4,
